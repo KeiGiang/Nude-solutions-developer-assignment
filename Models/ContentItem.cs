@@ -8,12 +8,10 @@ public class ContentItem {
   [BsonRepresentation(BsonType.ObjectId)]
   public string? Id { get; set; }
 
-  [BsonElement("Name")]
-  public string ItemName { get; set; }
+  public string name { get; set; }
 
-  public int ValueCents { get; set; }
+  public int valueCents { get; set; }
 
-  [BsonElement("Category")]
-  public Category ItemCategory { get; set; }
+  public Category category { get; set; }
 }
 
