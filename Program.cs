@@ -1,4 +1,5 @@
 using nude_assignment.Configurations;
+using nude_assignment.Services;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ builder.Services.AddControllersWithViews()
       options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
   });
 builder.Services.Configure<DatabaseSettings>(builder.Configuration.GetSection("MongoDatabase"));
+builder.Services.AddSingleton<ContentItemService>();
 
 var app = builder.Build();
 
@@ -23,7 +25,6 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-
 
 app.MapControllerRoute(
     name: "default",
