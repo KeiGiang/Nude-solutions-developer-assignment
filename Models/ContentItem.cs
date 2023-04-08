@@ -12,6 +12,6 @@ public class ContentItem {
 
   public int valueCents { get; set; }
 
-  public Category category { get; set; }
+  public ContentItemCategory category { get; set; }
 }
 

@@ -8,5 +8,6 @@ public interface IContentItemService {
   Task CreateAsync(ContentItem item);
   Task UpdateAsync(string id, ContentItem item);
   Task DeleteAsync(string id);
+  Task<List<ContentItemCategorySummary>> GetCategorySummaries();
 }
 

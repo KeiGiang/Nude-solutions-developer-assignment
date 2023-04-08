@@ -1,7 +1,8 @@
 namespace nude_assignment.Models;
 
-public enum Category {
+public enum ContentItemCategory {
   Electronics,
   Clothing,
   Kitchen,
+  Total,
 }

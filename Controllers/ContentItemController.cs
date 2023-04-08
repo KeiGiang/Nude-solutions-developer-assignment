@@ -21,6 +21,11 @@ public class ContentItemController : ControllerBase {
       return await _itemService.GetAsync();
     }
 
+    [HttpGet("categorySummaries")]
+    public async Task<List<ContentItemCategorySummary>> getCategorySummaries() {
+      return await _itemService.GetCategorySummaries();
+    }
+
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] ContentItem item) {
       await _itemService.CreateAsync(item);
