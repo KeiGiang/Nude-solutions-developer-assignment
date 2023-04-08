@@ -19,15 +19,8 @@ public class ContentItemService : IContentItemService {
   public async Task<List<ContentItem>> GetAsync() =>
     await _insuredContentItemCollection.Find(_ => true).ToListAsync();
 
-  public async Task<ContentItem> GetAsync(string id) =>
-    await _insuredContentItemCollection.Find(
-        x => x.Id == id).FirstOrDefaultAsync();
-
   public async Task CreateAsync(ContentItem item) =>
     await _insuredContentItemCollection.InsertOneAsync(item);
-
-  public async Task UpdateAsync(string id, ContentItem item) =>
-    await _insuredContentItemCollection.ReplaceOneAsync(x => x.Id == id, item);
 
   public async Task DeleteAsync(string id) =>
     await _insuredContentItemCollection.DeleteOneAsync(x => x.Id == id);

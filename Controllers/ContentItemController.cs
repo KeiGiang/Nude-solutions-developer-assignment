@@ -32,12 +32,6 @@ public class ContentItemController : ControllerBase {
       return CreatedAtAction(nameof(Get), new { id = item.Id }, item);
     }
 
-    [HttpPut("{id}")]
-    public async Task<IActionResult> Put(string id, [FromBody] ContentItem item ) {
-      await _itemService.UpdateAsync(id, item);
-      return NoContent();
-    }
-
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(string id) {
       await _itemService.DeleteAsync(id);
