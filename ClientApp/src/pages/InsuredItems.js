@@ -27,6 +27,14 @@ const InsuredItems = () => {
     setInsuredContentItems(withAddedItem)
   }
 
+  const onDeleteSuccess = id => {
+    const itemsCopy = [...insuredContentItems]
+    const index = itemsCopy.findIndex(item => item.id === id)
+    itemsCopy.splice(index, 1)
+
+    setInsuredContentItems([...itemsCopy])
+  }
+
   return (
     <div>
       {categorySummaries &&
@@ -36,6 +44,7 @@ const InsuredItems = () => {
                 key={summary.category}
                 category={summary.category}
                 totalValueCents={summary.valueCents}
+                onDeleteSuccess={onDeleteSuccess}
                 data={insuredContentItems.filter(
                   item => item.category === summary.category)}
               />

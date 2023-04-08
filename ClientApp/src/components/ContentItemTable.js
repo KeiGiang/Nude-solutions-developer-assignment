@@ -10,8 +10,9 @@ import {
 } from '@mui/material';
 
 import { formatCentValues } from '../utils/money-formatter';
+import { CustomTableRow } from './CustomTableRow';
 
-const ContentItemTable = ({ category, totalValueCents, data }) => {
+const ContentItemTable = ({ category, totalValueCents, data, onDeleteSuccess }) => {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="Insured items table">
@@ -25,14 +26,11 @@ const ContentItemTable = ({ category, totalValueCents, data }) => {
         <TableBody>
           {data && data.map(
             item => (
-              <TableRow
+              <CustomTableRow
                 key={`${item.category}-${item.name}`}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              >
-                <TableCell>{item.name}</TableCell>
-                <TableCell>${formatCentValues(item.valueCents)}</TableCell>
-                <TableCell>Delete icon</TableCell>
-              </TableRow>
+                data={item}
+                onDeleteSuccess={onDeleteSuccess}
+              />
             )
           )}
         </TableBody>
