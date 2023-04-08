@@ -8,6 +8,7 @@ the sole purpose of their interview process.
 * Redux/Sagas to handle FE app state & API calls
 * Unit tests for both FE and BE
 * Styling of the items table for nicer alignment between columns
+* Update category calculations on add/remove
 
 These are items I skipped over in consideration of the time/effort required to
 learn and/or implement them.

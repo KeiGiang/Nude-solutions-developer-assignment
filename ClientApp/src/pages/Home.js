@@ -20,6 +20,7 @@ export class Home extends Component {
           <li>Redux/Sagas to handle FE app state & API calls</li>
           <li>Unit tests for both FE and BE</li>
           <li>Styling of the items table for nicer alignment between columns</li>
+          <li>Update category calculations on add/remove</li>
         </ul>
 
         <p>
