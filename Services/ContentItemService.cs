@@ -29,6 +29,11 @@ public class ContentItemService : IContentItemService {
     List<ContentItem> items =
       await _insuredContentItemCollection.Find(_ => true).ToListAsync();
 
+    return generateSummaryList(items);
+  }
+
+  private List<ContentItemCategorySummary> generateSummaryList(List<ContentItem> items) {
+
     List<ContentItemCategorySummary> summaries =
       new List<ContentItemCategorySummary>();
 
