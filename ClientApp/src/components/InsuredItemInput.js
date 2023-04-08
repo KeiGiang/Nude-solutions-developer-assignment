@@ -22,14 +22,6 @@ const InsuredItemInput = ({ addItemSuccess }) => {
     })
       .then(response => addItemSuccess(response.data))
       .catch(_err => alert("Error adding item"))
-
-    resetForm()
-  }
-
-  const resetForm = () => {
-    setItemName("")
-    setItemValue(undefined)
-    setItemCategory(categories[0])
   }
 
   return (
@@ -49,13 +41,11 @@ const InsuredItemInput = ({ addItemSuccess }) => {
         id="item-name"
         label="Item Name"
         variant="standard"
-        value={itemName}
         onChange={event => setItemName(event.target.value)} />
       <TextField
         id="item-value"
         label="Value"
         variant="standard"
-        value={itemValue}
         onChange={event => setItemValue(event.target.value)} />
       <Select
         id="item-category"
