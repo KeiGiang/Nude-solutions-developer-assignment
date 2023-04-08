@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getAllItems, getItemCategorySummaries } from '../api/insuredItemsApi.js'
 import { ContentItemTable } from '../components/ContentItemTable.js';
+import { InsuredItemInput } from '../components/InsuredItemInput.js';
 
 const InsuredItems = () => {
   const [insuredContentItems, setInsuredContentItems] = useState();
@@ -14,13 +15,20 @@ const InsuredItems = () => {
     getItemCategorySummaries()
       .then(response => {
         setContentSummaries(response.data)
-        console.log(response.data)
       })
   }, [])
 
+  const addItemSuccess = newItem => {
+    const withAddedItem = [
+      ...insuredContentItems,
+      newItem
+    ]
+
+    setInsuredContentItems(withAddedItem)
+  }
+
   return (
     <div>
-      {insuredContentItems && `${insuredContentItems.map(item => item.name)}`}
       {categorySummaries &&
           categorySummaries.map(
             summary => (
@@ -34,6 +42,7 @@ const InsuredItems = () => {
             )
           )
       }
+      <InsuredItemInput addItemSuccess={addItemSuccess} />
     </div>
   )
 }
