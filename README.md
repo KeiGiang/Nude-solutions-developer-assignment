@@ -7,6 +7,7 @@ the sole purpose of their interview process.
 * Typescript support for React frontend
 * Redux/Sagas to handle FE app state & API calls
 * Unit tests for both FE and BE
+* Styling of the items table for nicer alignment between columns
 
 These are items I skipped over in consideration of the time/effort required to
 learn and/or implement them.

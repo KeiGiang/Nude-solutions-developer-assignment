@@ -19,6 +19,7 @@ export class Home extends Component {
           <li>Typescript support for React frontend</li>
           <li>Redux/Sagas to handle FE app state & API calls</li>
           <li>Unit tests for both FE and BE</li>
+          <li>Styling of the items table for nicer alignment between columns</li>
         </ul>
 
         <p>
