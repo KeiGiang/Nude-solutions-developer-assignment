@@ -15,7 +15,7 @@ const ContentItemTable = ({ category, totalValueCents, data }) => {
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label="Insured items table">
-        <TableHead>
+        <TableHead sx={{ backgroundColor: "#D0D0D0" }}>
           <TableRow>
             <TableCell>{category}</TableCell>
             <TableCell>${formatCentValues(totalValueCents)}</TableCell>
