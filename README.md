@@ -11,3 +11,12 @@ the sole purpose of their interview process.
 These are items I skipped over in consideration of the time/effort required to
 learn and/or implement them.
 
+## How to run
+Start the MySQL server with
+```
+docker compose up -d
+```
+Start the application with VS or use the below command
+```
+dotnet watch run
+```
