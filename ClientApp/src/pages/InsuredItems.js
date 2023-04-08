@@ -1,19 +1,39 @@
-import React, { useState } from 'react';
-import { getAllItems } from '../api/insured-items.js'
+import React, { useEffect, useState } from 'react';
+import { getAllItems, getItemCategorySummaries } from '../api/insuredItemsApi.js'
+import { ContentItemTable } from '../components/ContentItemTable.js';
 
 const InsuredItems = () => {
-  const [result, setApiResult] = useState();
+  const [insuredContentItems, setInsuredContentItems] = useState();
+  const [categorySummaries, setContentSummaries] = useState();
 
-  const onClick = async () => {
-    const items = await getAllItems();
-    setApiResult(items);
-  }
+  useEffect(() => {
+    getAllItems()
+      .then(response => {
+        setInsuredContentItems(response.data)
+      })
+    getItemCategorySummaries()
+      .then(response => {
+        setContentSummaries(response.data)
+        console.log(response.data)
+      })
+  }, [])
 
   return (
     <div>
-      <button onClick={onClick}>Test API</button>
-      <br/>
-      {result && `test ${result}`}
+      {insuredContentItems && `${insuredContentItems.map(item => item.name)}`}
+      {categorySummaries &&
+          categorySummaries.map(
+            summary => (
+              <ContentItemTable
+                key={summary.category}
+                category={summary.category}
+                totalValueCents={summary.valueCents}
+                data={insuredContentItems.filter(
+                  item => item.category === summary.category)}
+              />
+            )
+          )
+      }
     </div>
   )
 }
